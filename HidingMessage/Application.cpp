@@ -88,7 +88,7 @@ int wmain(INT argc, PWSTR argv[])
 				return -1;
 			}
 
-			printf("Done! Secret message retrieved into \"%ws\" file", lpszPathToFile);
+			printf("Done! Secret message retrieved into \"%ws\" file\r\n", lpszPathToFile);
 
 			CloseHandle(hFile);
 		}

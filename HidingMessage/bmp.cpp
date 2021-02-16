@@ -121,19 +121,8 @@ BOOL SaveBMP(LPCWSTR lpszFilePath, PBMP pBmp)
 
 BOOL CloseBMP(PBMP pBmp)
 {
-	LONG biHeightBMP = pBmp->infoHeader.biHeight;
-	LONG biWidthBMP = pBmp->infoHeader.biWidth;
-
-	for (INT i = 0; i < biHeightBMP; i++)
-	{
-		for (INT j = 0; j < biWidthBMP; j++)
-		{
-			free(pBmp->bitmap + (DWORD)(i * biWidthBMP + j));
-		}
-	}
-
-	free(&(pBmp->fileHeader));
-	free(&(pBmp->infoHeader));
+	free(pBmp->bitmap);
+	free(pBmp);
 
 	return TRUE;
 }

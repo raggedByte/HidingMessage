@@ -86,6 +86,7 @@ BOOL EmbedMessageInBMP(LPCWSTR lpszFilePath, PBMP pBmp)
 	EncryptBytesToBMP(pBuffer, (DWORD)fileLength, pBmp);
 
 	CloseHandle(hFile);
+	free(pBuffer);
 
 	return TRUE;
 }
@@ -125,6 +126,6 @@ BOOL RetrieveMessageFromBMP(PBMP pBmp, PVOID* pOutBuffer, PINT dwBytesReaded)
 
 	*pOutBuffer = pBuffer;
 	*dwBytesReaded = dwReadedBytes;
-
+	
 	return TRUE;
 }
